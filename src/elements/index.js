@@ -4,5 +4,6 @@ import Text from "./Text";
 import Input from "./Input";
 import Button from "./Button";
 import Header from "../components/Header";
+import Spinner from "./Spinner";
 
-export { Grid, Image, Text, Input, Button, Header };
+export { Grid, Image, Text, Input, Button, Header, Spinner };
