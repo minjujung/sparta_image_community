@@ -9,6 +9,8 @@ import Signup from "../pages/Signup";
 import Permit from "./Permit";
 import PostDetail from "../pages/PostDetail";
 import CreatePost from "../pages/CreatePost";
+import Search from "./Search";
+import Notice from "../pages/Notice";
 
 import { Header, Grid, Button } from "../elements";
 
@@ -40,6 +42,8 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/post/:id" component={PostDetail} />
           <Route path="/create" component={CreatePost} />
+          <Route path="/search" component={Search} />
+          <Route path="/notice" component={Notice} />
         </ConnectedRouter>
       </Grid>
       <Permit>

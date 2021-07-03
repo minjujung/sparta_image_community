@@ -1,7 +1,7 @@
 import React from "react";
 import moomin from "../images/화난무민.jpg";
 
-import { Grid, Image, Text } from "../elements";
+import { Grid, Image, Text, Button } from "../elements";
 
 const Post = (props) => {
   return (
@@ -11,6 +11,7 @@ const Post = (props) => {
           <Image src={props.src} shape="circle" />
           <Text bold>{props.user_info.user_name}</Text>
           <Text>{props.insert_dt}</Text>
+          <Button width="150px">수정</Button>
         </Grid>
         <Grid padding="16px">
           <Text>{props.contents}</Text>

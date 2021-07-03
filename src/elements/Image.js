@@ -16,12 +16,16 @@ const Image = (props) => {
 
   if (shape === "rectangle") {
     return (
-      <AspectOutter>
+      <AspectOutter size={size}>
         <AspectInner {...styles}></AspectInner>
       </AspectOutter>
     );
   }
-  return <></>;
+  return (
+    <>
+      <SquareImage {...styles}></SquareImage>
+    </>
+  );
 };
 
 Image.defaultProps = {
@@ -29,6 +33,16 @@ Image.defaultProps = {
   src: `${moomin}`,
   size: 36,
 };
+
+const SquareImage = styled.div`
+  --size: ${(props) => props.size}px;
+  width: var(--size);
+  min-width: var(--size);
+  height: var(--size);
+  min-height: var(--size);
+  background-image: url("${(props) => props.src}");
+  background-size: cover;
+`;
 
 const AspectOutter = styled.div`
   width: 100%;
@@ -39,6 +53,7 @@ const AspectInner = styled.div`
   position: relative;
   padding-top: 75%;
   overflow: hidden;
+
   background-image: url("${(props) => props.src}");
   background-size: cover;
 `;
