@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { Grid, Text } from "../elements";
 
 const Input = (props) => {
-  const { label, placeholder, _onChange, type, multiLine } = props;
+  const { label, placeholder, _onChange, type, multiLine, value } = props;
 
   if (multiLine) {
     return (
@@ -16,6 +16,7 @@ const Input = (props) => {
             </>
           )}
           <TextAreaField
+            value={value}
             rows={10}
             placeholder={placeholder}
             onChange={_onChange}
@@ -51,6 +52,7 @@ Input.defaultProps = {
   placeholder: "입력해주세요!",
   _onChange: () => {},
   type: "text",
+  value: "",
 };
 
 const InputField = styled.input`

@@ -41,7 +41,8 @@ function App() {
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/post/:id" component={PostDetail} />
-          <Route path="/create" component={CreatePost} />
+          <Route path="/write" exact component={CreatePost} />
+          <Route path="/write/:id" exact component={CreatePost} />
           <Route path="/search" component={Search} />
           <Route path="/notice" component={Notice} />
         </ConnectedRouter>
@@ -51,7 +52,7 @@ function App() {
           is_float
           text="+"
           _onClick={() => {
-            history.push("/create");
+            history.push("/write");
           }}
         ></Button>
       </Permit>

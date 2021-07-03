@@ -1,17 +1,34 @@
 import React from "react";
 import moomin from "../images/화난무민.jpg";
 
+import { history } from "../redux/configureStore";
+
 import { Grid, Image, Text, Button } from "../elements";
 
 const Post = (props) => {
   return (
     <>
       <Grid>
-        <Grid padding="16px" is_flex>
-          <Image src={props.src} shape="circle" />
-          <Text bold>{props.user_info.user_name}</Text>
-          <Text>{props.insert_dt}</Text>
-          <Button width="150px">수정</Button>
+        <Grid is_flex padding="16px">
+          <Grid is_flex>
+            <Image src={props.src} shape="circle" />
+            <Text bold>{props.user_info.user_name}</Text>
+          </Grid>
+          <Grid is_flex>
+            <Text>{props.insert_dt}</Text>
+            {props.is_me && (
+              <Button
+                padding="4px"
+                width="60px"
+                margin="4px"
+                _onClick={() => {
+                  history.push(`/write/${props.id}`);
+                }}
+              >
+                수정
+              </Button>
+            )}
+          </Grid>
         </Grid>
         <Grid padding="16px">
           <Text>{props.contents}</Text>
