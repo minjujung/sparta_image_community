@@ -38,12 +38,18 @@ function App() {
           <Route path="/" exact component={PostList} />
           <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
-          <Route path="/detail" component={PostDetail} />
+          <Route path="/post/:id" component={PostDetail} />
           <Route path="/create" component={CreatePost} />
         </ConnectedRouter>
       </Grid>
       <Permit>
-        <Button is_float text="+"></Button>
+        <Button
+          is_float
+          text="+"
+          _onClick={() => {
+            history.push("/create");
+          }}
+        ></Button>
       </Permit>
     </>
   );

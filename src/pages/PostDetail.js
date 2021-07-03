@@ -1,14 +1,16 @@
 import React from "react";
-import Post from "../components/Post";
+
 import { Input } from "../elements";
+import Post from "../components/Post";
 import Comment from "../components/Comment";
+import CommentList from "../components/CommentList";
 
 const PostDetail = (props) => {
   return (
     <>
       <Post />
-      <Input placeholder="댓글 내용을 입력하세요 :)" />
-      <button>작성</button>
+      <Comment />
+      <CommentList />
     </>
   );
 };

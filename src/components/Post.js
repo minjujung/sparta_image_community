@@ -7,7 +7,7 @@ const Post = (props) => {
   return (
     <>
       <Grid>
-        <Grid is_flex>
+        <Grid padding="16px" is_flex>
           <Image src={props.src} shape="circle" />
           <Text bold>{props.user_info.user_name}</Text>
           <Text>{props.insert_dt}</Text>
@@ -16,15 +16,13 @@ const Post = (props) => {
           <Text>{props.contents}</Text>
         </Grid>
         <Grid>
-          <Image shape="rectangle" src={props.src} />
+          <Image shape="rectangle" src={props.image_url} />
         </Grid>
         <Grid padding="16px">
-          <Text bold>댓글 {props.comment_cnt}개</Text>
+          <Text margin="0px" bold>
+            댓글 {props.comment_cnt}개
+          </Text>
         </Grid>
-        <div>user profile / user name / indsert_dt </div>
-        <div>contents</div>
-        <div>image</div>
-        <div>comment cnt</div>
       </Grid>
     </>
   );

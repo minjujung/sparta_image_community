@@ -1,12 +1,15 @@
 import React from "react";
-import { Image, Text } from "../elements";
+
+import { Input, Grid, Text, Button } from "../elements";
 
 const Comment = (props) => {
   return (
-    <>
-      <Image />
-      <Text>우와 무민이 화내고 있어요!!</Text>
-    </>
+    <Grid padding="16px" is_flex>
+      <Input placeholder="댓글 내용을 입력하세요 :)" />
+      <Button width="50px" margin="0px 5px">
+        작성
+      </Button>
+    </Grid>
   );
 };
 
