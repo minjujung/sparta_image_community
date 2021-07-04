@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { getCookie, deleteCookie } from "../shared/Cookie";
 
 import { Grid, Text, Button } from "../elements";
+import NotiBadge from "./NotiBadge";
 import Permit from "../shared/Permit";
+
 import { useSelector, useDispatch } from "react-redux";
 import { actionCreators as userActions } from "../redux/modules/user";
 
@@ -26,12 +28,13 @@ const Header = (props) => {
         </Text>
         <Grid is_flex>
           <Button text="내정보"></Button>
-          <Button
-            text="알림"
-            _onClick={() => {
-              history.push("/notice");
-            }}
-          ></Button>
+          <Permit>
+            <NotiBadge
+              _onClick={() => {
+                history.push("/notice");
+              }}
+            />
+          </Permit>
           <Button
             text="로그아웃"
             _onClick={() => dispatch(userActions.logoutFB())}

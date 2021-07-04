@@ -36,21 +36,27 @@ const Login = (props) => {
       </Text>
       <Grid padding="16px 0px">
         <Input
+          value={id}
           label="아이디"
           placeholder="아이디를 입력해주세요"
           _onChange={(e) => {
             setId(e.target.value);
           }}
+          onSubmit={login}
+          is_submit
         />
       </Grid>
       <Grid padding="16px 0px">
         <Input
+          value={pwd}
           type="password"
           label="비밀번호"
           placeholder="비밀번호를 입력해주세요"
           _onChange={(e) => {
             setPwd(e.target.value);
           }}
+          onSubmit={login}
+          is_submit
         />
       </Grid>
       <Button text="로그인 하기" _onClick={() => login()}></Button>
