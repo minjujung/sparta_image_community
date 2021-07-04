@@ -4,7 +4,16 @@ import styled from "styled-components";
 import { Grid, Text } from "../elements";
 
 const Input = (props) => {
-  const { label, placeholder, _onChange, type, multiLine, value } = props;
+  const {
+    label,
+    placeholder,
+    _onChange,
+    type,
+    multiLine,
+    value,
+    is_submit,
+    onSubmit,
+  } = props;
 
   if (multiLine) {
     return (
@@ -35,12 +44,25 @@ const Input = (props) => {
             <br />
           </>
         )}
-
-        <InputField
-          type={type}
-          placeholder={placeholder}
-          onChange={_onChange}
-        />
+        {is_submit ? (
+          <InputField
+            value={value}
+            type={type}
+            placeholder={placeholder}
+            onChange={_onChange}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                onSubmit(e);
+              }
+            }}
+          />
+        ) : (
+          <InputField
+            type={type}
+            placeholder={placeholder}
+            onChange={_onChange}
+          />
+        )}
       </label>
     </Grid>
   );
@@ -53,6 +75,8 @@ Input.defaultProps = {
   _onChange: () => {},
   type: "text",
   value: "",
+  is_submit: false,
+  onSubmit: () => {},
 };
 
 const InputField = styled.input`

@@ -4,21 +4,20 @@ import { createBrowserHistory } from "history";
 import { connectRouter } from "connected-react-router";
 
 import User from "./modules/user";
-import post from "./modules/post";
+import Post from "./modules/post";
 import Image from "./modules/image";
+import Comment from "./modules/comment";
 
 export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
   user: User,
-  post: post,
+  post: Post,
   image: Image,
-  //아래 코드 덕분에 store에 브라우저의 history도 다 저장됨
+  comment: Comment,
   router: connectRouter(history),
 });
 
-//withExtraArgument 덕분에 action creator 함수 실행되고 reducer 실행되기
-//전단계에 history 사용 가능!
 const middlewares = [thunk.withExtraArgument({ history: history })];
 
 // 지금이 어느 환경인 지 알려줘요. (개발환경, 프로덕션(배포)환경 ...)
@@ -26,9 +25,6 @@ const env = process.env.NODE_ENV;
 
 // 개발환경에서는 로거라는 걸 하나만 더 써볼게요.
 if (env === "development") {
-  //require는 package가져 올 때 쓴다
-  //콘솔창에 data바뀌는 걸 보여좀
-  // if 문 안(development)일 때만 가져오려고 import가 아닌 require사용
   const { logger } = require("redux-logger");
   middlewares.push(logger);
 }
